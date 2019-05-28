@@ -1,0 +1,193 @@
+<!--头部-->
+<div class="csr-hp-headDiv">
+    <img src="images/hp_dyn_02.jpg" alt="hp_dyn_02.jpg" class="csr-hp-headImg">
+    <div class="csr-hp-headsDiv">
+        <img src="{{uhead}}" alt="dynamic_06.jpg" class="img-circle csr-hp-headPortrait">
+        <div>
+            <p class="csr-hp-headP1">{{uname}}
+                <span class="label label-danger">{{ugarde}}</span></p>
+            <!--可修改值-->
+            <p class="csr-hp-headP2" contenteditable="true" onclick="clearP()" onkeypress="tijiao()">{{uab}}</p>
+        </div>
+    </div>
+</div>
+<!--头部end-->
+<!--小导航-->
+<div class="csr-hp-small">
+    <div class="container csr-hp-smallIn">
+        <div>
+            <a href="hp-collection" style="color: black">
+                <div>
+                    <img src="images/hp_dyn_10.jpg" height="23" width="25"/>
+                    <span>我的动态</span>
+                </div>
+            </a>
+            <div onclick="hpMatch()">
+                <img src="images/hp_dyn_12.jpg" height="23" width="23">
+                <span>我的赛事</span>
+            </div>
+            <div onclick="hpFollow()">
+                <img src="images/hp_dyn_14.jpg" height="23" width="23"/>
+                <span>我的关注</span>
+            </div>
+            <div onclick="hpCo()">
+                <img src="images/hp_dyn_16.jpg" height="23" width="24"/>
+                <span>我的收藏</span>
+            </div>
+        </div>
+        <div>
+            <div>
+                <p>粉丝数</p>
+                <p id="csr-hp-collectionP1"></p>
+            </div>
+            <div>
+                <p>关注数</p>
+                <p id="csr-hp-collectionP2"></p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--小导航end-->
+<div class="hpAll">
+    <div class="container">
+        <div class="row" id="myrow">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <!--发表动态-->
+
+                <div class="csr-hp-dyn-publication">
+                    <!--可修改值-->
+                    <div contenteditable="true" class="csr-hp-dyn-publicationInput" onclick="clearText()">
+                        说点什么吧
+                    </div>
+                    <img src="images/hp_dyn_25.jpg" onclick="fileSubmit()">
+                </div>
+                <form id="csr-hp-file"><input type="file" style="display: none" id="csr-hp-file1" name="imgname"
+                                              multiple="multiple"></form>
+                <div class="csr-hp-dyn-publicationNew">
+                    <button type="button" class="btn btn-warning csr-hp-dyn-buttonNew" onclick="submitImgs()">发表
+                    </button>
+                </div>
+                <!--发表动态end-->
+                {{#each dynamic}}
+                    <!--一组动态-->
+                    <div class=" csr-dynamic-dyDiv" onclick="showAnDynamic({{dy_num}})">
+                        <!--右上角箭头 菜单栏-->
+                        <div class="csr-hp-dyn-rightButtons">
+                            <button type="button" class="csr-hp-dyn-buttonSpan" onclick="disButton()">
+                                <span class="glyphicon glyphicon-chevron-down csr-hp-dyn-span"
+                                      aria-hidden="true"></span>
+                            </button>
+                            <div class="csr-hp-dyn-rightButtonsIn">
+                                <button class="csr-hp-dyn-buttons" onclick="csrHpDyCollect({{dy_num}})">收藏</button>
+                                <button class="csr-hp-dyn-buttons" onclick="csrHpDyDelete({{dy_num}})">删除</button>
+                            </div>
+                        </div>
+                        <!--右上角箭头 菜单栏end-->
+                        <!--头像和用户名-->
+
+                        <div class="csr-dynamic-head">
+                            <img src="{{user_head}}" alt="头像dynamic_06" class="img-circle">
+                            <div>
+                                <p>{{user_name}}</p>
+                                <p>{{dy_time}}</p>
+                            </div>
+                        </div>
+                        <!--头像和用户名end-->
+                        <!--内容正文-->
+                        <div class="csr-dynamic-second">
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{dy_text}}
+                            </p>
+                        </div>
+                        <!--内容正文end-->
+                        <!--图片-->
+                        <div class="csr-dynamic-third">
+                            <img src="{{dy_p1}}" alt="dynamic_16">
+                            <img src="{{dy_p2}}" alt="dynamic_16">
+                            <img src="{{dy_p3}}" alt="dynamic_16">
+                        </div>
+                        <!--图片end-->
+                        <!--右侧按钮-->
+                        <div class="csr-dynamic-right">
+                            <button id="csr-dynamic-spanThumbsUp{{dy_num}}" onclick="takeRed1({{dy_num}})">
+                                <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                            </button>
+                            <button id="csr-dynamic-spanCollection{{dy_num}}" onclick="takeRed2({{dy_num}})">
+                                <span class=" glyphicon glyphicon-star" aria-hidden="true"></span>
+                            </button>
+                            <button id="csr-dynamic-spanFollow{{dy_num}}" onclick="takeRed3({{dy_num}})">
+                                <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                        <!--右侧按钮end-->
+                        <hr class="csr-dynamic-hr">
+                        <div style="display: none" id="anDynamic{{dy_num}}">
+
+
+                            <!--点赞显示-->
+                            <div class="csr-dynamic-thumbUp">
+                                <img src="images/dynamic_25.jpg" class="img-circle" alt="dynamic_25">
+                                <p id="csr-dynamicP-{{dy_num}}"></p>
+                            </div>
+                            <!--点赞显示end-->
+                            <!--评论显示-->
+                            <div class="csr-dynamic-commentOld" id="csr-dynamic_comment{{dy_num}}">
+
+                            </div>
+                            <!--评论显示end-->
+                            <!--输入评论框-->
+                            <div class="csr-dynamic-commentNew">
+                            <textarea cols="30" rows="5" onclick="textareaIn({{dy_num}})"
+                                      id="csr-dynamic-textarea{{dy_num}}" class="inputOld"
+                                      onkeyup="fontNumber({{dy_num}})">评论</textarea>
+                                <p class="csr-dynamic-textareaP" id="csr-dynamic-P{{dy_num}}">你还可以输入<span
+                                        id="csr-dynamic-count{{dy_num}}">150</span>个字符</p>
+                                <button type="button" class="btn btn-warning csr-dynamic-counmentNewBut"
+                                        id="csr-dynamic-NewBut{{dy_num}}" onclick="textSubmit({{dy_num}})">发表
+                                </button>
+                            </div>
+                            <!--输入评论框end-->
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+                {{/each}}
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--动态end-->
+
+<script>
+    //清除div内容// div 发表显示
+    function clearText() {
+        var a = document.getElementsByClassName("csr-hp-dyn-publicationInput")[0];
+        a.textContent = "";
+        var b = document.getElementsByClassName("csr-hp-dyn-publication ")[0];
+        b.style.borderRadius = "10px 10px 0 0";
+        $(".csr-hp-dyn-publicationNew:eq(0)").slideDown("slow");
+    }
+
+    $(function () {
+        // alert("ji");
+        var num = "usernum=" + sessionStorage.getItem('user_name');
+        console.log(num);
+        $.ajax({
+            url: "hpFollowNum",
+            type: "POST",
+            dataType: "json",
+            contentType: "application/x-www-form-urlencoded", // OR application/json
+            data: num,
+            error: function () {
+                alert("err")
+            },
+            success: function (result) {
+                console.log(result);
+                document.getElementById('csr-hp-collectionP1').innerText = result.num2;
+                document.getElementById('csr-hp-collectionP2').innerText = result.num1;
+            }, complete: function () {
+            }
+
+        })
+    })
+</script>

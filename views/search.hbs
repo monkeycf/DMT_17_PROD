@@ -1,0 +1,27 @@
+<!--搜索框-->
+<img src="images/search_02.jpg" class="csr-search-imgSearch" alt="search_02">
+<div class="csr-search-from">
+    <form method="post" id="csr-search-form1">
+        <input class="csr-search-input" type="text" placeholder="请输入关键字" value="{{what}}" name="findtext">
+        <button class="csr-search-button " type="submit" onclick="findwhat()">
+            <span class="glyphicon glyphicon-search csr-search-find" aria-hidden="true">搜索</span>
+        </button>
+    </form>
+</div>
+<!--搜索框end-->
+
+<!--结果-->
+<div id="csr-search-add">
+{{#each result}}
+<div class="csr-search-resultDiv" onmouseover=" displayCsrSearch(this)" onmouseout="noDisplayCsrSearch(this)">
+    <div class="csr-search-resultRight">
+        <p> 点击查看详情-></p>
+    </div>
+    <div class="csr-search-resultLeft csr-search{{dy_num}}" >
+        <p>{{dy_text}}</p>
+        <span class="glyphicon glyphicon-time csr-search-time" aria-hidden="true">{{dy_time}}&nbsp;&nbsp;&nbsp;{{user_name}}</span>
+    </div>
+</div>
+{{/each}}
+</div>
+<!--结果end-->

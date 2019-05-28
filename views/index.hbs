@@ -1,0 +1,49 @@
+<!--卖-->
+<div class="csr-index-shareDiv">
+    <a href="/dynamic">  <button class="csr-index-shareButton">START SHARE</button></a>
+     <img src="images/index_03.jpg" class="csr-index-shareImg" alt="背景index_03">
+</div>
+<!--卖end-->
+<!--玩-->
+<div class="csr-index-playDiv">
+    <a href="/introduce"><button class="csr-index-playButton" >try it now</button></a>
+    <img src="images/index_05.jpg" class="csr-index-playImg" alt="背景index_05">
+</div>
+<!--玩end-->
+<!--比赛-->
+<div class="csr-index-gameDiv">
+    <a href="/matchShow">    <button class="csr-index-gameButton">jion</button></a>
+    <img src="images/index_07.jpg" class="csr-index-gameImg" alt="背景index_07">
+</div>
+<!--比赛end-->
+<!--主体end-->
+<script>
+    $(
+            function () {
+                var val = document.getElementById("csr-layout-button");
+                if (val.innerText != '登录') {
+                    // alert("hi");
+                    if (sessionStorage.getItem('user_name') === null) {
+                        $.ajax({
+                            url: "readygo",
+                            type: "POST",
+                            dataType: "json",
+                            contentType: "application/x-www-form-urlencoded", // OR application/json
+                            data: "",
+                            complete: function () {
+
+                            },
+                            success: function (result) {
+                                console.log(result);
+                                sessionStorage.setItem('user_name',result.unum);
+                                sessionStorage.setItem('user_head', result.uhead);
+                            },
+                            error: function () {
+                                alert("error");
+                            }
+                        })
+                    }
+                }
+            }
+    )
+</script>

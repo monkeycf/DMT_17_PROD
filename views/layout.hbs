@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{title}}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <!--链接bootstrap.css-->
+    <link rel="stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.css"/>
+    <link rel='stylesheet' href='/bootstrap-3.3.7-dist/css/bootstrap-theme.css'/>
+    <!--jquery3.3.1.min-->
+    <script src="/javascripts/jquery3.3.1.min.js"></script>
+    <!--bootstrap.js-->
+    <script src="/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <!--my css-->
+    <link rel="stylesheet" href="/stylesheets/sr.css">
+    <!--my js-->
+    <script src="/javascripts/myjs.js"></script>
+    <script src="/javascripts/land.js"></script>
+    <!--<script src="/javascripts/index.js"></script>-->
+    <script src="/javascripts/search.js"></script>
+    <script src="/javascripts/register.js"></script>
+    <script src="/javascripts/dynamic.js"></script>
+    <script src="/javascripts/hp.js"></script>
+    <!--tittle中的小图标-->
+    <link rel="shortcut icon" href="/images/timg4.jpg">
+</head>
+<body>
+
+<!--顶部导航栏-->
+<div class="csr-homepage-divHead">
+    <div class="csr-homepage-divHeadLeft">
+        <!--<img src="picture/firstTimg.png" alt="图标">-->
+        <ul>
+            <li>
+                <button><a href="/"> 首页</a></button>
+            </li>
+            <li >
+                <button><a href="/introduce">解法</a></button>
+                <ul>
+                    <button>
+                        <li>第一步</li>
+                    </button>
+                    <button>
+                        <li>第二步</li>
+                    </button>
+                    <button>
+                        <li>第三步</li>
+                    </button>
+                </ul>
+            </li>
+            <li>
+                <button><a href="/dynamic">动态 </a></button>
+                <ul>
+                    <button>
+                        <li>我的动态</li>
+                    </button>
+                    <button>
+                        <li>全部动态</li>
+                    </button>
+                </ul>
+            </li>
+            <li>
+                <button><a href="/matchShow">赛事</a></button>
+                <ul>
+                    <button>
+                        <li>我的赛事</li>
+                    </button>
+                    <button>
+                        <li>全部赛事</li>
+                    </button>
+                </ul>
+            </li>
+            <li>
+                <button><a href="/hp-collection"> {{geren}}</a></button>
+                <ul>
+                    <button>
+                        <li>我的动态</li>
+                    </button>
+                    <button>
+                        <li>我的收藏</li>
+                    </button>
+                    <button>
+                        <li>我的关注</li>
+                    </button>
+                    <button>
+                        <li>我的比赛</li>
+                    </button>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+    <div>
+        <form method="post" class="csr-homepage-FirstForm" action="/search" enctype="application/x-www-form-urlencoded">
+            <input type="text" placeholder="请输入关键字" name="key">
+            <button type="submit"><a style="color: black">搜索</a></button>
+        </form>
+    </div>
+    <div class="csr-homepage-divHeadRight">
+        <ul>
+            <li>
+                <button><a href="{{dengluurl}}" id="csr-layout-button"> {{denglu}}</a></button>
+
+            </li>
+            <li>
+                <button><a href="{{zhuceurl}}"> {{zhuce}}</a></button>
+
+            </li>
+        </ul>
+    </div>
+</div>
+<!--导航栏end-->
+{{{body}}}
+<!--页尾-->
+<div class="csr-homepage-last">
+    <img src="images/firstTimg.png" alt="图标firstTimg">
+    <p>版权：树莓172 csr</p>
+    <p>联系电话：8888888</p>
+    <p>浙江省杭州市江干区凯旋街道</p>
+</div>
+<!--页尾end-->
+</body>
+</html>

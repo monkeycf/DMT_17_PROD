@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--链接bootstrap.css-->
+    <link rel="stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.css"/>
+    <link rel='stylesheet' href='/bootstrap-3.3.7-dist/css/bootstrap-theme.css'/>
+    <link rel='stylesheet' href='/stylesheets/ad.css'/>
+    <script src="javascripts/jquery3.3.1.min.js"></script>
+    <!--bootstrap.js-->
+    <script src="/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <script src="javascripts/ad-dynamic.js"></script>
+    <script src="javascripts/ad-user.js"></script>
+
+</head>
+<div class="csr-ad-left">
+    <img src="images/dynamic_06.jpg" class="img-circle">
+    <p>管理员</p>
+    <button onclick="disdy()">
+        <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>&nbsp;动态管理
+    </button>
+    <button onclick="disuser()">
+        <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>&nbsp;用户管理
+    </button>
+    <button>
+        <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>&nbsp;赛事管理
+    </button>
+</div>
+<div class="csr-ad-right">
+    <div class="csr-ad-text">
+        <div class="csr-ad-first">
+            <p class="csr-ad-p">动态管理</p>
+            <form method="post" action="123" class="csr-ad-formFirst">
+                <input type="search" name="seachtext" id="csr-ad-findwhat">
+                <input class="csr-ad-submit" type="submit" id="csr-find-dy" value="查找">
+                <input class="csr-ad-submit csr-ad-renovate" type="button" id="csr-renovate-dy" value="刷新">
+            </form>
+        </div>
+        <div class="csr-ad-second">
+            <table class="table table-striped table-hover csr-ad-table" id="csr-ad-table1">
+                <thead>
+                <tr>
+                    <td>动态编号</td>
+                    <td>用户名</td>
+                    <td>图片</td>
+                    <td>内容</td>
+                    <td>发布时间</td>
+                    <td></td>
+                </tr>
+                </thead>
+                <tbody class="csr-ad-tbody">
+                {{#each adDynamic}}
+                    <tr>
+                        <td>{{dy_num}}</td>
+                        <td>{{user_name}}</td>
+                        <td><img src="{{dy_p1}}"><img src="{{dy_p2}}"><img src="{{dy_p3}}"></td>
+                        <td>
+                            <div>{{dy_text}}</div>
+                        </td>
+                        <td>{{dy_time}}</td>
+                        <td>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary btn-sm csr-ad-button1" data-toggle="modal"
+                                    data-target="#myModal" id="{{dy_num}}" onclick="changedy({{dy_num}})">
+                                编辑
+                            </button>
+                            <!--模态框 boot-->
+                            <!-- Modal -->
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+                                 aria-labelledby="myModalLabel">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        </div>
+                                        <div class="modal-body">
+                                            <form class="csr-ad-modalForm">
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--模态框 end-->
+                            <button id="{{dy_num}}" class="btn btn-primary btn-sm  csr-ad-button2"
+                                    onclick="deletedy({{dy_num}})">
+                                删除
+                            </button>
+                        </td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

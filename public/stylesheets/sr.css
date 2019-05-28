@@ -1,0 +1,1314 @@
+/*chrome滚动条*/
+/*内层轨道，滚动条中间部分（除去）*/
+::-webkit-scrollbar-track-piece {
+    -webkit-border-radius: 0;
+}
+
+/*滚动条整体部分*/
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+/*滚动条里面的小方块，能向上向下移动（或往左往右移动，取决于是垂直滚动条还是水平滚动条）*/
+::-webkit-scrollbar-thumb {
+    height: 50px;
+    background-color: #000;
+    -webkit-border-radius: 4px;
+    outline-offset: -2px;
+    border: 2px solid #000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    height: 50px;
+    background-color: #000;
+    -webkit-border-radius: 4px;
+}
+
+/*navigationBar*/
+/*顶部导航栏,以浏览器窗口固定位置 置顶*/
+.csr-homepage-divHead {
+    width: 100%;
+    height: 3em;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    /*显示在最前面*/
+}
+
+/*顶部导航栏按钮*/
+.csr-homepage-divHead button {
+    background-color: black;
+    padding: 0;
+    border: 0 black;
+}
+
+.csr-homepage-divHeadLeft ul, .csr-homepage-divHeadRight ul {
+    list-style: none;
+    padding: 0;
+}
+
+.csr-homepage-divHeadLeft > ul > li {
+    float: left;
+}
+
+.csr-homepage-divHeadRight > ul > li {
+    float: right;
+}
+
+.csr-homepage-divHeadLeft ul li, .csr-homepage-divHeadRight ul li {
+    color: white;
+    background-color: black;
+    line-height: 3em;
+    text-align: center;
+    width: 70px;
+}
+
+.csr-homepage-divHeadLeft ul > li > ul, .csr-homepage-divHeadRight ul > li > ul {
+    display: none;
+}
+
+/*顶部导航栏超链接*/
+.csr-homepage-divHead a {
+    color: white;
+}
+
+/*顶部导航栏左侧*/
+.csr-homepage-divHeadLeft {
+    margin-left: 15%;
+    float: left;
+}
+
+.csr-homepage-divShow {
+    display: none;
+    width: 1000%;
+    height: 70px;
+    background-color: white;
+}
+
+.csr-homepage-divHeadLeft img {
+    height: 2em;
+}
+
+/*顶部导航栏右侧*/
+.csr-homepage-divHeadRight {
+    margin-right: 3%;
+    float: right;
+}
+
+/*搜索框*/
+.csr-homepage-FirstForm {
+    margin-top: 0.5em;
+    float: right;
+    margin-right: 7%;
+}
+
+.csr-homepage-FirstForm input {
+    border-radius: 25px;
+    border: 0;
+    padding: 0 7px;
+}
+
+.csr-homepage-FirstForm button {
+    border-radius: 10px;
+    border: 2em whitesmoke;
+    padding: 0 10px;
+    background-color: whitesmoke;
+}
+
+.csr-index-shareDiv, .csr-index-playDiv, .csr-index-gameDiv {
+    position: relative;
+}
+
+/*页尾*/
+.csr-homepage-last {
+    clear: both;
+    padding: 1em;
+    height: 15em;
+    background-color: black;
+    text-align: center;
+}
+
+.csr-homepage-last img {
+    height: 50%;
+    text-align: center;
+}
+
+/*旋转魔方*/
+.csr-homepage-spinPicture {
+    float: left;
+    margin: 13% 42%;
+
+}
+
+.csr-homepage-array {
+    margin: 20px;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d; /*子元素保留3d位置*/
+    animation: csr-spinPicture linear 20s infinite;
+}
+
+@keyframes csr-spinPicture {
+    from {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+    to {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}
+
+/*添加过度效果 所有属性改变 0.4s*/
+.csr-homepage-big {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    opacity: 0.8;
+    transition: all .4s;
+}
+
+.csr-homepage-big img {
+    width: 200px;
+    height: 200px;
+}
+
+.csr-homepage-bigFront {
+    transform: rotateY(0deg) translateZ(100px);
+}
+
+.csr-homepage-bigBehind {
+    transform: rotateY(180deg) translateZ(100px);
+}
+
+.csr-homepage-bigLeft {
+    transform: rotateY(-90deg) translateZ(100px);
+}
+
+.csr-homepage-bigRight {
+    transform: rotateY(90deg) translateZ(100px);
+}
+
+.csr-homepage-bigUp {
+    transform: rotateX(90deg) translateZ(100px);
+}
+
+.csr-homepage-bigDown {
+    transform: rotateX(-90deg) translateZ(100px);
+}
+
+.csr-homepage-small {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+}
+
+.csr-homepage-small img {
+    width: 100px;
+    height: 100px;
+}
+
+.csr-homepage-smallFront {
+    transform: rotateY(0deg) translateZ(50px);
+}
+
+.csr-homepage-smallBehind {
+    transform: rotateY(180deg) translateZ(50px);
+}
+
+.csr-homepage-smallLeft {
+    transform: rotateY(-90deg) translateZ(50px);
+}
+
+.csr-homepage-smallRight {
+    transform: rotateY(90deg) translateZ(50px);
+}
+
+.csr-homepage-smallUp {
+    transform: rotateX(90deg) translateZ(50px);
+}
+
+.csr-homepage-smallDown {
+    transform: rotateX(-90deg) translateZ(50px);
+}
+
+.csr-homepage-array:hover .csr-homepage-bigFront {
+    transform: rotateY(0deg) translateZ(200px);
+}
+
+.csr-homepage-array:hover .csr-homepage-bigBehind {
+    transform: rotateY(180deg) translateZ(200px);
+}
+
+.csr-homepage-array:hover .csr-homepage-bigLeft {
+    transform: rotateY(-90deg) translateZ(200px);
+}
+
+.csr-homepage-array:hover .csr-homepage-bigRight {
+    transform: rotateY(90deg) translateZ(200px);
+}
+
+.csr-homepage-array:hover .csr-homepage-bigUp {
+    transform: rotateX(90deg) translateZ(200px);
+}
+
+.csr-homepage-array:hover .csr-homepage-bigDown {
+    transform: rotateX(-90deg) translateZ(200px);
+}
+
+/*浮动板块*/
+.csr-homepage-float {
+    margin: 0 13em;
+    /*background-color: black;*/
+}
+
+/*浮动区块 隐藏溢出*/
+.csr-homepage-float > div {
+    border-radius: 10px;
+    margin: 2em 1.5em;
+    width: 17em;
+    height: 25em;
+    padding: 5px;
+    border: solid 1px #9d9d9d;
+    float: left;
+    overflow: hidden;
+    background-color: white;
+}
+
+/*鼠标悬停 下红色划线 右灰色阴影*/
+.csr-homepage-float > div:hover {
+    border-style: solid;
+    border-bottom-color: #fc6458;
+    border-width: 0 0 4px 0;
+    box-shadow: 2px 2px 5px #969696;
+}
+
+/*浮动板块 图片*/
+.csr-homepage-float img {
+    border-radius: 10px;
+}
+
+/*浮动板块 文章题目*/
+.csr-homepage-float p:nth-child(2) {
+    text-align: center;
+    color: #4f9fcf;
+    font-size: 2em;
+    margin: 0;
+}
+
+/*浮动板块 作者*/
+.csr-homepage-float p:nth-child(3) {
+    text-align: center;
+    color: #bbbbbb;
+    font-size: 1em;
+}
+
+/*浮动板块 简介*/
+.csr-homepage-float p:nth-child(4) {
+    font-size: 1em;
+}
+
+/*navigationBar end*/
+/*index*/
+.csr-index-shareButton, .csr-index-playButton, .csr-index-gameButton {
+    padding: 0;
+    border: 0;
+    position: absolute;
+    border-radius: 10px;
+    color: white;
+    font-size: 300%;
+}
+
+.csr-index-shareButton {
+    background-color: #5a657d;
+    top: 55%;
+    margin: 0 35%;
+    width: 30%;
+    height: 14%;
+    color: white;
+    transition: background-color 1s;
+}
+
+.csr-index-shareButton:hover {
+    background-color: yellow;
+    color: #5a657d;
+}
+
+.csr-index-playButton {
+    border: white 1px ridge;
+    width: 20%;
+    margin: 0 40%;
+    top: 67%;
+    color: white;
+    background-color: #6d806d;
+    transition: background-color 1s;
+}
+
+.csr-index-playButton:hover {
+    background-color: orangered;
+}
+
+.csr-index-gameButton {
+    background-color: #534741;
+    width: 20%;
+    margin: 0 41%;
+    top: 55%;
+    transition: background-color 1s;
+}
+
+.csr-index-gameButton:hover {
+    background-color: orange;
+}
+
+.csr-index-shareImg, .csr-index-playImg, .csr-index-gameImg {
+    width: 100%;
+}
+
+/*index end*/
+/*search*/
+/*搜索框*/
+.csr-search-imgSearch {
+    width: 100%;
+    height: 35em;
+    margin: 0 0 5em 0;
+    position: relative;
+}
+
+.csr-search-from {
+    position: absolute;
+    top: 15em;
+    margin: 0 27%;
+    border: 0;
+    width: 50%;
+    /*阴影*/
+
+    -webkit-box-reflect:below 0 -webkit-linear-gradient(transparent,transparent 30%,rgba(255,255,255,.3));
+
+}
+
+.csr-search-button {
+    background-color: #ff0000;
+    color: white;
+    border: 0;
+    height: 100px;
+    width: 15%;
+    padding: 0;
+    margin: 0;
+    border-radius: 0 25px 25px 0;
+    float: left;
+}
+
+.csr-search-input {
+    border-radius: 25px 0 0 25px;
+    border: 0;
+    padding: 0 0 0 7px;
+    width: 70%;
+    height: 100px;
+    font-size: 30px;
+    float: left;
+}
+
+.csr-search-find {
+    font-size: 25px;
+}
+
+/*搜索框end*/
+/*结果*/
+.csr-search-resultDiv {
+    /*background-color:black;*/
+    border: #cccccc 1px solid;
+    margin: 0 15% 5em;
+    width: 70%;
+    height: 10em;
+    padding: 10px 40px;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
+}
+
+.csr-search-time {
+    color: #cccccc;
+
+}
+
+.csr-search-resultRight {
+    position: absolute;
+    top: 0;
+    right: -200px;
+    margin: 0;
+    background-color: #33cdff;
+    width: 15%;
+    height: 100%;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    padding: 55px 0;
+    border-radius: 0 10px 10px 0;
+    transition: all 1s;
+}
+
+/*search end*/
+/*hp*/
+body {
+    background-color: #b4daef;
+}
+
+p, div {
+    outline: none;
+}
+
+button {
+    outline: none;
+}
+
+.csr-hp-headDiv {
+    position: relative;
+}
+
+.csr-hp-headImg {
+    width: 100%;
+    margin-top: 3em;
+}
+
+.csr-hp-headsDiv {
+    position: absolute;
+    top: 60%;
+    left: 5em;
+    width: 50%;
+}
+
+.csr-hp-headsDiv > div {
+    margin-top: 1em;
+}
+
+.csr-hp-headPortrait {
+    width: 15%;
+}
+
+.csr-hp-headP2 {
+    font-size: 1em;
+    color: white;
+    margin-left: 20px;
+}
+
+.csr-hp-headP1 {
+    margin-left: 20px;
+    color: white;
+    font-size: 300%;
+    margin-bottom: 0;
+}
+
+.csr-hp-headsDiv span {
+    font-size: 0.4em;
+    background: red;
+    margin-left: 0.5em;
+}
+
+.csr-hp-headPortrait, .csr-hp-headsDiv > div {
+    float: left;
+}
+
+.csr-hp-small {
+    background-color: white;
+    width: 100%;
+    padding: 1em 0 0 0;
+}
+
+.csr-hp-smallIn > div:first-child > div:first-child {
+    margin-left: 0;
+}
+
+.csr-hp-smallIn > div:first-child div {
+    float: left;
+    margin-left: 1em;
+}
+
+.csr-hp-smallIn > div:nth-child(2) div {
+    float: right;
+    margin-right: 1em;
+}
+
+.csr-hp-smallIn p {
+    margin: 0;
+    font-size: 15px;
+    text-align: center;
+    color: #a1a0a5;
+}
+
+.csr-hp-dyn-publication {
+    margin-top: 2em;
+    background-color: white;
+    border-radius: 10px;
+    height: 5em;
+    border-bottom: #ababab 2px solid;
+}
+
+.csr-hp-dyn-publicationInput {
+    width: 90%;
+    /*background-color: red;*/
+    height: 100%;
+    padding: 5px 20px;
+    display: inline-block;
+
+}
+
+.csr-hp-dyn-publication img {
+    display: inline-block;
+    width: 5em;
+    /*padding:0.5em;*/
+}
+
+.csr-hp-dyn-publicationNew {
+    height: 3em;
+    background-color: white;
+
+    display: none;
+    border-radius: 0 0 10px 10px;
+}
+
+.csr-hp-dyn-buttonNew {
+    float: right;
+    margin: 0.5em 2em 0 0;
+
+}
+
+.csr-hp-dyn-span {
+    color: #4e4e4e;
+    font-size: 1.5em;
+    text-align: right;
+    margin-left: 2em;
+    /*margin-bottom: -5em;*/
+}
+
+.csr-hp-dyn-rightButtons {
+    margin: 2em 5em 0 0;
+    float: right;
+}
+
+.csr-hp-dyn-buttonSpan {
+    border: 0;
+    background-color: white;
+    text-align: right;
+}
+
+button:focus {
+    outline: none;
+}
+
+.csr-hp-dyn-buttons {
+    width: 5em;
+    display: block;
+    background-color: white;
+    border: black 1px solid;
+}
+
+.csr-hp-dyn-rightButtonsIn {
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.csr-hp-dyn-dis {
+    opacity: 1;
+}
+
+.csr-hp-follow-ues {
+    width: 25em;
+    height: 14em;
+    background-color: white;
+    margin: 2em 1.5% 1em 1.5%;
+    float: left;
+}
+
+.csr-hp-follow-ues div {
+    margin: 2em 0;
+    float: left;
+}
+
+.csr-hp-follow-ues div:first-child {
+    border-right: #a69d8d 1px solid;
+}
+
+.csr-hp-follow-uesImg {
+    height: 5em;
+    width: 5em;
+    margin: 1em 1em;
+}
+
+.csr-hp-follow-uesP1 {
+    font-size: 1.7em;
+    margin: 1em 0 0 1em;
+}
+
+.csr-hp-follow-uesP1 span {
+    font-size: 0.5em;
+}
+
+.csr-hp-follow-uesP2 {
+    margin: 0.7em 0 0 1.5em;
+    font-size: 1em;
+
+}
+
+.csr-hp-follow-uesP2 span {
+    color: red;
+}
+
+.csr-hp-follow-uesP3 {
+    font-size: 0.9em;
+    margin: 0.7em 0 0 1.7em;
+}
+
+.csr-hp-match-texts > div {
+    width: 80%;
+    margin: 2em 10%;
+    height: 15em;
+    background-color: white;
+    padding: 1em 5em;
+}
+
+.csr-hp-match-textsImg {
+    padding: 1.5em 0;
+    float: left;
+    width: 100px;
+    /*height: 100px;*/
+}
+
+.csr-hp-match-textDiv {
+    float: left;
+
+    margin: 1em 0 0 4em;
+    width: 80%;
+}
+
+.csr-hp-match-textDiv p:first-child {
+    font-size: 2em;
+}
+
+.csr-hp-match-textSpan1 {
+    font-size: 1.5em;
+    color: red;
+}
+
+.csr-hp-match-textSpan2 {
+    font-size: 1em;
+    color: #969696;
+}
+
+/*hp end */
+/*dynamic*/
+.csr-dynamic-divPicture {
+    width: 100%;
+    height: 40em;
+    overflow: hidden;
+}
+
+.csr-dynamic-move2 img {
+    float: left;
+    height: 40em;
+    width: 25%
+}
+
+.csr-dynamic-move2 {
+    height: 40em;
+    width: 400%;
+}
+
+#move1 {
+    transition: margin-left 2s;
+}
+
+.csr-dynamic-move {
+    animation-name: csr-movePicture; /*规定需要绑定到选择器的 keyframe 名称。*/
+    animation-duration: 10s; /*规定完成动画所花费的时间，以秒*/
+    animation-timing-function: linear; /*	规定动画的速度曲线。*/
+    animation-delay: 0s; /*规定在动画开始之前的延迟。*/
+    animation-iteration-count: infinite; /*规定动画应该播放的次数。*/
+    animation-direction: alternate; /*	规定是否应该轮流反向播放动画。*/
+}
+
+@keyframes csr-movePicture {
+    0% {
+        margin-left: 0%;
+    }
+    20% {
+        margin-left: 0%;
+    }
+    27% {
+        margin-left: -100%;
+    }
+    47% {
+        margin-left: -100%;
+    }
+    54% {
+        margin-left: -200%;
+    }
+    74% {
+        margin-left: -200%;
+    }
+    80% {
+        margin-left: -300%;
+    }
+    100% {
+        margin-left: -300%;
+    }
+}
+
+.csr-dynamic-change1 {
+    animation-name: csr-movePicture1;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+}
+
+@keyframes csr-movePicture1 {
+    from {
+        margin-left: -100%;
+    }
+    to {
+        margin-left: 0%;
+    }
+}
+
+.csr-dynamic-change2 {
+    animation-name: csr-movePicture2;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+}
+
+@keyframes csr-movePicture2 {
+    0% {
+        margin-left: -200%;
+    }
+    30% {
+        margin-left: -100%;
+    }
+    60% {
+        margin-left: -100%;
+    }
+    100% {
+        margin-left: 0;
+    }
+}
+
+.csr-dynamic-change3 {
+    animation-name: csr-movePicture3;
+    animation-duration: 6s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+}
+
+@keyframes csr-movePicture3 {
+    0% {
+        margin-left: -300%;
+    }
+    30% {
+        margin-left: -200%;
+    }
+    40% {
+        margin-left: -200%;
+    }
+    70% {
+        margin-left: -100%;
+    }
+    80% {
+        margin-left: -100%;
+    }
+    100% {
+        margin-left: 0;
+    }
+}
+
+.csr-dynamic-divButton {
+    background-color: transparent;
+}
+
+.csr-dynamic-buttons {
+    text-align: center;
+    padding: 0;
+    background-color: transparent;
+}
+
+.csr-dynamic-buttons button {
+    border: 0;
+    padding: 6px;
+    color: white;
+    background-color: white;
+}
+
+.csr-dynamic-dyDiv {
+    background-color: white;
+    margin-top: 2em;
+}
+
+.csr-dynamic-head {
+    margin: 1em 3em 0;
+}
+
+.csr-dynamic-head img {
+    width: 13%;
+    display: inline-block;
+    margin-top: -5%;
+}
+
+.csr-dynamic-head > div {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.csr-dynamic-head p:first-child {
+    font-size: 2.5em;
+    padding: 30px 0 0 0;
+}
+
+.csr-dynamic-head p:nth-child(2) {
+    color: #c2c2c2;
+}
+
+.csr-dynamic-second {
+    margin: 0 6em 0 10em;
+}
+
+.csr-dynamic-second p {
+    font-size: 1em;
+}
+
+.csr-dynamic-third {
+    margin: 0 6% 0;
+
+}
+
+.csr-dynamic-third img {
+    display: inline-block;
+    width: 30%;
+    margin-left: 2%;
+    border: #cccccc 5px solid;
+    border-radius: 10px;
+}
+
+.csr-dynamic-right {
+    margin: 2% 6% -2% 80%;
+}
+
+.csr-dynamic-right button {
+    border: 0;
+    padding: 0;
+    background-color: white;
+}
+
+.csr-dynamic-right span {
+    width: 30px;
+    font-size: 20px;
+    /*color: red;*/
+    /*background-color: red;*/
+}
+
+.csr-dynamic-spanRed {
+    color: red;
+}
+
+.csr-dynamic-spanOrange {
+    color: orange;
+}
+
+.csr-dynamic-hr {
+    border: #969696 1px solid;
+    background-color: #969696;
+}
+
+.csr-dynamic-thumbUp {
+    margin: 0 5em;
+}
+
+.csr-dynamic-thumbUp > img {
+    width: 1.5em;
+    display: inline-block;
+}
+
+.csr-dynamic-thumbUp p {
+    display: inline-block;
+    color: #d9a641;
+}
+
+.csr-dynamic-commentOld > div {
+    margin: 0.5em 5em;
+    position: relative;
+    height: 4em;
+}
+
+.csr-dynamic-commentOld > div img {
+    width: 3em;
+    display: inline-block;
+    position: absolute;
+    top: 0.5em;
+}
+
+.csr-dynamic-commentOld > div div {
+    position: absolute;
+    top: 0.7em;
+    left: 4em;
+}
+
+.csr-dynamic-commentOld > div div, .csr-dynamic-commentOld > div p {
+    display: inline-block;
+}
+
+.csr-dynamic-commentOl > div p {
+    margin: 0;
+}
+
+.csr-dynamic-commentOld > div p:first-child {
+    color: #d9a641;
+}
+
+.csr-dynamic-commentOld > div p:last-child {
+    color: #d2d2d2;
+    font-size: 12px;
+}
+
+.csr-dynamic-commentNew {
+    margin: 0 5em;
+}
+
+.csr-dynamic-commentNew textarea {
+    width: 100%;
+    padding: 2px;
+}
+
+.inputOld {
+    height: 2em;
+}
+
+.inputNew {
+    height: 5em;
+}
+
+.csr-dynamic-textareaP {
+    display: none;
+    font-size: 15px;
+    text-align: right;
+
+}
+
+.csr-dynamic-counmentNewBut {
+    background-color: #e6b85c;
+    margin-left: 93.5%;
+    height: 2em;
+    padding: 3px 12px;
+    display: none;
+}
+
+/*dynamic end*/
+
+/*match*/
+
+.csr-match-text {
+    clear: both;
+}
+
+.csr-match-text p {
+    text-align: center;
+    font-size: 2em;
+    color: black;
+}
+
+/*match end*/
+/*register*/
+
+.csr-register-bread {
+    margin: 7em 20% 0 30%;
+    text-align: center;
+}
+
+.csr-register1-bread1 {
+    color: #bfbfbf
+}
+
+.csr-register-bread button {
+    background-color: transparent;
+    border: 0;
+}
+
+.csr-register-bread div {
+    float: left;
+}
+
+.csr-register-bread hr {
+    width: 10em;
+    float: left;
+    border: #b9b9b9 1px solid;
+}
+
+.csr-register-users {
+    clear: both;
+    width: 60%;
+    margin: 0 20%;
+    height: 7em;
+    background: linear-gradient(transparent, #0099cc);
+}
+
+.csr-register-users div {
+    text-align: center;
+}
+
+.csr-register-users > div button {
+    display: inline-block;
+    background-color: transparent;
+    color: white;
+    border: 0;
+    font-size: 3em;
+    margin: 0.7em 0 0 0;
+}
+
+.csr-register-users > button {
+    background-color: transparent;
+    border: 0;
+    font-size: 2em;
+    color: #0099cc;
+    margin: -1em 45% 0 50%;
+
+}
+
+.csr-register-users p {
+    display: inline-block;
+    color: white;
+    font-size: 2em;
+}
+
+.csr-register-usersContent {
+    width: 60%;
+    /*height: 25em;*/
+    background-color: white;
+    margin: 0 20% 10em 20%;
+}
+
+.csr-register-usersCountry {
+    padding: 5em 37% 0 37%;
+}
+
+.csr-register-usersPhone {
+    padding: 1em 0 3% 37%;
+}
+
+.csr-register-usersCountry div {
+    display: inline-block;
+    margin: 0 1em;
+}
+
+.csr-register-usersContent p {
+    color: #666666;
+    font-size: 1em;
+    display: inline-block;
+}
+
+.csr-register-usersPhone div {
+    display: inline-block;
+    margin: 0 1em;
+}
+
+.csr-register-usersPhone input {
+    display: inline-block;
+}
+
+.csr-register-usersNext {
+    margin: 0 0 5% 50%;
+}
+
+.csr-register-ok {
+    /*margin-top: 20em;*/
+    margin-bottom: 10em;
+}
+
+.csr-register-in {
+    padding: 3em 7em;
+}
+
+/*register end*/
+.csr-register-in {
+    padding: 5em 0 1em 0;
+    margin: 0 20%;
+}
+
+#inputPassword4 {
+    border: 0;
+    /*background-color: red;*/
+    /*mso-border-shadow: 0;*/
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    padding-left: 0;
+}
+
+.csr-register-labels button {
+    float: left;
+    margin: 1em 1em;
+
+}
+
+.csr-register-okNext {
+    text-align: center;
+    padding: 0 0 5em 0;
+}
+
+.csr-register-okNext p {
+    margin: 2em 0 0;
+}
+
+.csr-register-okNext img {
+    margin: 7% 45% 0;
+}
+
+/*introduce*/
+.carousel-inner > .item > img {
+    height: 30em;
+    width: 100%;
+}
+
+.csr-introduce-nav {
+    float: left;
+    width: 15%;
+    height: 600px;
+}
+
+.csr-introduce-data {
+    height: 600px;
+    overflow: auto;
+    position: relative;
+    float: left;
+    width: 85%;
+    background-color: white;
+}
+
+.csr-introduce-ul li {
+    width: 100%;
+}
+
+.csr-introduce-data > div > p > img {
+    width: 40px;
+}
+
+.csr-introduce-data > div {
+    margin: 10px 20px;
+}
+
+.csr-introduce-data > div > div {
+    border-left: #969696 2px dashed;
+    margin-left: 5px;
+    padding-left: 5px;
+}
+
+.csr-introduce-data > div > div img {
+    width: 20em;
+}
+
+.csr-introduce-hr {
+    clear: both;
+    /*height: 20px;*/
+    border: #9d9d9d 1px solid;
+    color: #9d9d9d;
+    background: #9d9d9d;
+
+}
+
+.csr-introduce-hot p {
+    font-size: 3em;
+    margin-left: 30px;
+}
+
+/*introduce end*/
+
+/*land*/
+.csr-land-backImg {
+    width: 100%;
+    margin-top: 3em;
+}
+
+.csr-land-center {
+    width: 40%;
+    height: 25em;
+    margin: 15% 30%;
+    background: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.csr-land-head button {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    font-size: 30px;
+    /*height:5em;*/
+    background: transparent;
+    color: white;
+    width: 100%;
+}
+
+.csr-land-head div:first-child button {
+    color: #0296f5;
+}
+
+.csr-land-head div {
+    float: left;
+    width: 50%;
+    background: transparent;
+    border-bottom: white 2px solid;
+    padding: 10px 0;
+}
+
+.csr-land-head div:first-child {
+    border-bottom: #017fd2 2px solid;
+
+}
+
+.csr-land-box1 {
+    clear: both;
+    width: 60%;
+    margin: 7em 25%;
+}
+
+.csr-land-box1 form img {
+    float: left;
+    margin: 1em 0;
+
+}
+
+.csr-land-submit {
+    width: 50%;
+    background: #009cff;
+    color: white;
+    height: 48px;
+    border: 0;
+    font-size: 20px;
+    margin: 0 25%;
+}
+
+.csr-land-box1 form > div input {
+    float: left;
+    margin: 1em 0;
+
+    height: 48px;
+    width: 80%;
+}
+
+#csr-land-remeber {
+
+    float: left;
+    margin: 0 0 0 50px;
+    width: 5%;
+    height: 20px;
+}
+
+.csr-land-p {
+    float: left;
+    color: white;
+}
+
+/*land end*/
